@@ -1,32 +1,24 @@
-# Counting it up
-# @author Nicky Patterson, Daniel Pravanov
-# @desc A class used to calculate binomial   # equations using Longs as the largest 
-# interger size declaration
+# Etude6 - Counting it up
+Nicky Patterson, Daniel Prvanov
 
-# numbersGoIn
-# @input A string variable gotten from 
-# system.in
-# A method used to do the computing of the result of N!/K!(N-K)!
+## Start Up
 
-# nFact
-# @in the Long n passed from system.In after 
-# conversion from string to long
-# A method that creates an array list consisting of the factors of N
+The project uses java.util.* to help the user input the data and the program to process the data. java.util.ArrayList is also imported to allow ArrayLists to accessed and used to store data.
 
-# otherFact
-# @in the the smaller of either K or N-K passed from system.In after 
-# conversion from string to long
-# A method that creates an array list consisting of the factors of either K or N-K
+```
+java.util.*;
+java.util.ArrayList;
+```
 
-# furtherReduce
-# @ in arrayList N, and arrayList other, array lists of factorials gotten from N and K
-# A method that divides N and K by K, to simplify numbers within the arrayList
+The program can be run by typing the following command into the console from the directory of the file:
 
-# reduceX
-# @ in arrayList N, and arrayList other, array lists of factorials gotten from N and K, N being the number you wish to simplify the two array lists by
-# A method that divides N and K by N, to simplify numbers within the arrayList
+```
+java CountIt.java
+```
 
-# multiply
-# @ in an array list you wish to multiply
-# multiplies each number in the array by the next number
-# @return out total multiplied array list
+## How The Program Works
+
+
+## Testing
+
+To test the data we 

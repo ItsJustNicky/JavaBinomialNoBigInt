@@ -1,22 +1,34 @@
 import java.util.*;
 import java.util.ArrayList;
-public class CountIt {
+    /* @authors Nicky Patterson, Daniel Prvanov 
+     * @desc A class used to calculate binomial equations using Long as
+     * the largest integer size declaration.
+     */
+
+    public class CountIt {
     public static void main(String[] args){
         String inputNumber;
         Scanner sc = new Scanner(System.in);
+
+        /* While there is a next line the scanner reads the input */
         while(sc.hasNextLine()){
             inputNumber= sc.nextLine();
-            if(inputNumber.compareTo("")==0)break; 
-            numbersGoIn(inputNumber);
+
+            if (inputNumber.isEmpty()) {
+                break;
+            } try {
+                numbersGoIn(inputNumber);
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid Input");
+            }
         }
 
         sc.close();
     }
 
-    /*
-     * TO DO LIST:
-     * ADD if check for if N is smaller or larger than k
-     * currently only works with N greater than K
+    /* numbersGoIn
+     * @input A string variable gotten from system.in
+     * A method used to do the computing of the result of N!/K!(N-K)!.
      */
     public static void numbersGoIn(String input){
         Long n;
@@ -124,6 +136,12 @@ public class CountIt {
 
     }
 
+    /* nFact
+     * @input the Long n passed from system.in after conversion from 
+     * string to long.
+     * A method that creates an array list consisting of the factors of N.
+     * @output an array list consisting of the factors of N.
+     */
     public static ArrayList<Long> nFact(Long min, Long max){
         ArrayList<Long> out = new ArrayList<Long>(0);
         for(Long i = min+1; i < max+1; i++)
@@ -132,6 +150,14 @@ public class CountIt {
         }
         return out;
     }
+
+    /* otherFact
+     * @input the smaller of K or N-K passed from system.in after conversion
+     * from string to long.
+     * A method that creates an array list consisting of the factors of either 
+     * K or N-K.
+     * @output an array list consisting of the factors of either K or N-K.
+     */
     public static ArrayList<Long> otherFact(Long in){
         ArrayList<Long> out = new ArrayList<Long>(0);
         for(Long i = Long.valueOf(1); i < in+1; i++)
@@ -139,6 +165,12 @@ public class CountIt {
             out.add(Long.valueOf(i));
         }
         return out;
+
+    /* furtherReduce
+     * @input an arrayList n and an arrayList other, array lists of factorials
+     * gotten from N and K.    
+     * A method that divides N and K by K, to simplify numbers within the arrayList.
+     */   
     }
     public static void furtherReduce(ArrayList<Long> n, ArrayList<Long> other){
         for(int i=0;i<other.size();i++){
@@ -150,6 +182,12 @@ public class CountIt {
             }
         }
     }
+
+    /* reduceX
+     * @input an arrayList N, and arrayList other, array lists of factorials gotten
+     * from N and K, N being being the number you wish to simplify the two lists by.
+     * A method that divides N and K by N, to simplify numbers within the arrayList.
+     */
     public static void reduceX(ArrayList<Long> n, ArrayList<Long> other, int x){
         for(int i=0;i<other.size();i++){
             for(int i2=0;i2<n.size();i2++){
@@ -159,13 +197,17 @@ public class CountIt {
                 }
             }
         }
-       // System.out.println(n.toString());
     }
+
+    /* multiply
+     * @input an array list you wish to multiply.
+     * Multiplies each number in the array by the next number
+     * @output total multiplied array list.
+     */
     public static Long multiply(ArrayList<Long> in){
         Long out=Long.valueOf(1);
         for(int i = 0;i<in.size();i++){
             out=out*in.get(i);
-            //System.out.println(out);
         }
         return out;
     } 
