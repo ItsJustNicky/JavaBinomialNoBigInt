@@ -1,14 +1,34 @@
 import java.util.*;
 import java.util.ArrayList;
+import java.io.File;
     /* @authors Nicky Patterson, Daniel Prvanov 
-     * @desc A class used to calculate binomial equations using Long as
+     * @desc A class used to calculate binomial equations using Longs as
      * the largest integer size declaration.
      */
 
     public class CountIt {
-    public static void main(String[] args){
+    public static void main(String[] args)throws Exception{
         String inputNumber;
         Scanner sc = new Scanner(System.in);
+
+        /*for testing using test inputs of various sizes verrified against a scientific calculator 
+        * using the binomial equation
+         */
+        /* 
+        File file = new File("test.txt");
+        Scanner sc2 = new Scanner(file);
+        while(sc2.hasNextLine()){
+            inputNumber= sc2.nextLine();
+
+            if (inputNumber.isEmpty()) {
+                break;
+            } try {
+                numbersGoIn(inputNumber);
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid Input");
+            }
+        }
+        */
 
         /* While there is a next line the scanner reads the input */
         while(sc.hasNextLine()){
@@ -36,14 +56,15 @@ import java.util.ArrayList;
         boolean maxReach=false;
         int space = input.indexOf(' ');
         String pt1 = input.substring(0, space);
-        if(pt1.contains("9223372036854775807")){
-            maxReach=true;
-        }
+        
         String pt2 = input.substring(space+1,input.length());
         ArrayList<Long> other=new ArrayList<Long>(0);
         ArrayList<Long> nList=new ArrayList<Long>(0);
         n = Long.parseLong(pt1);//needs try catch?
         k = Long.parseLong(pt2);//needs try catch?
+        if(k==Long.valueOf(1)){
+            maxReach=true;
+        }
         Long finalN;
         boolean kGreat =true;
         Long minus = n-k;
@@ -129,7 +150,7 @@ import java.util.ArrayList;
             reduceX(nList, other, 2);
 
         if(maxReach){
-            System.out.println("9223372036854775807");
+            System.out.println(n);
         }else{
         System.out.println(multiply(nList)/multiply(other));
         }
