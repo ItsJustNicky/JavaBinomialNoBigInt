@@ -15,6 +15,7 @@ The program can be run by typing the following command into the console from the
 ```
 java CountIt.java
 ```
+It then reads the users input from stdin, the user should enter two numerical values.
 
 ## How The Program Works
 
